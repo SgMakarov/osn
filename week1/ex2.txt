@@ -1,0 +1,5 @@
+   91  echo "hello world" 
+   92  tail ex1.txt
+   93  jobs
+   94  history
+   95  history > ex2.txt
