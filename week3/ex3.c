@@ -56,30 +56,35 @@ void add_first(list *l, int value) {
 }
 
 int remove_last(list *l) {
+    if (l->tail == NULL) return 0;
     int tmp = l->tail->value;
-    free(l->tail);
     if (l->tail == l->head) {
+        free(l->tail);
+
         l->tail = NULL;
         l->head = NULL;
         return tmp;
     } else {
 
-        l->tail = (list_node *) l->tail->prev;
-        l->tail->next = NULL;
 
+        l->tail = (list_node *) (l->tail->prev);
+        free(l->tail->next);
+        l->tail->next = NULL;
         return tmp;
     }
 }
 
 int remove_first(list *l) {
+    if (l->tail == NULL) return 0;
     int tmp = l->head->value;
-    free(l->head);
     if (l->head == l->tail) {
+        free(l->head);
         l->tail = NULL;
         l->head = NULL;
         return tmp;
     } else {
-        l->head = (list_node *) l->head->next;
+        l->head = (list_node *) (l->head->next);
+        free(l->head->prev);
         l->head->prev = NULL;
         return tmp;
     }
@@ -87,19 +92,23 @@ int remove_first(list *l) {
 
 void print_list(list l) {
     list_node *iterator = l.head;
+    printf("[ ");
     while (iterator != NULL) {
         printf("%d ", iterator->value);
         iterator = (list_node *) iterator->next;
     }
+    fputc(']', stdout);
     fputc('\n', stdout);
 }
 
 void print_list_reverse(list l) {
     list_node *iterator = l.tail;
+    printf("[ ");
     while (iterator != NULL) {
         printf("%d ", iterator->value);
         iterator = (list_node *) iterator->prev;
     }
+    fputc(']', stdout);
     fputc('\n', stdout);
 }
 
@@ -114,16 +123,31 @@ int main() {
 
     print_list(l);
     print_list_reverse(l);
+    fputc('\n', stdout);
 
-    printf("%d\n", remove_first(&l));
-    printf("%d\n", remove_first(&l));
+    printf("deleted %d\n", remove_last(&l));
+    printf("deleted %d\n", remove_last(&l));
+    fputc('\n', stdout);
+
 
     print_list(l);
     print_list_reverse(l);
+    fputc('\n', stdout);
 
-    printf("%d\n", remove_last(&l));
-    printf("%d\n", remove_last(&l));
+
+    printf("deleted %d\n", remove_first(&l));
+    printf("deleted %d\n", remove_first(&l));
+    fputc('\n', stdout);
 
     print_list(l);
-//    print_list_reverse(l);
+    print_list_reverse(l);
+    fputc('\n', stdout);
+
+    printf("deleted %d\n", remove_first(&l));
+    printf("deleted %d\n", remove_first(&l));
+    fputc('\n', stdout);
+
+    print_list(l);
+
+
 }
