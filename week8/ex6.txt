@@ -1,0 +1,1 @@
+byte offset is 13, thus we have 3 bytes to encode page number, so there are 8 pages.

@@ -1,0 +1,2 @@
+Virtual adress is an adress of some memory cell in virtual memory, which is an abstraction of physical memory.  
+Physical adress is an adress of a memory cell in physical memory, in other words - hardware. 
