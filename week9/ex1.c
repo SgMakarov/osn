@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #define COUNTER_SIZE 32u
 /*
 for counter of 8 bits
@@ -31,9 +32,7 @@ int main(int argc, char** argv) {
                      // in the beginning
   }
 
-  for (size_t i = 0; i < 1000; i++) {
-    pages[i] = 0;
-  }
+  memset(pages, 1000*sizeof(unsigned long long), 0);
 
   int hits = 0;
   int misses = 0;
