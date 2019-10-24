@@ -1,0 +1,13 @@
+-rw-rw-r-- 1 serega serega 0 окт 24 21:08 _ex3.txt
+1. (actually, after creation there were no execute permission, so nothing changed)
+$ chmod a-x  _ex3.txt
+-rw-rw-r-- 1 serega serega 0 окт 24 21:08 _ex3.txt
+2. 
+$ chmod u+xrw  _ex3.txt
+$ chmod o+xrw  _ex3.txt
+$ ls -l _ex3.tx
+-rwxrw-rwx 1 serega serega 335 окт 24 21:12 _ex3.txt
+3. 
+1) read, write, but not execute for owner and group, no rignts for others
+2) all rights for user and group, but only read and execute for others
+3) all rights for all

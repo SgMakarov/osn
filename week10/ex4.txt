@@ -1,0 +1,1 @@
+inode number: 2380080, names: link1 file1

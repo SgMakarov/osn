@@ -1,0 +1,16 @@
+1. link ~/study/osn/week1/file.txt _ex2.txt 
+output: 
+none
+
+2. ls -i _ex2.txt 
+output: 
+1448499 _ex2.txt
+
+3. find ../  -inum 1448499
+output:
+../week1/file.txt
+../week10/_ex2.txt
+
+4. find ../  -inum 1448499 -exec rm {} \;
+output:
+none
