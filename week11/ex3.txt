@@ -1,0 +1,2 @@
+In the second case buffer is flushed due to \n symbol, so Hello is printed only once in parent process. 
+In the first case buffer is not flushed, since it is not full and there is no special symbols, so Hello is printed in both parent and child processes. 
