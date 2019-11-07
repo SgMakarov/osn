@@ -6,6 +6,8 @@
 #include <unistd.h>
 
 int main() {
+  
+  
   int fd = open("./ex1.txt", O_RDWR);
   char *str = "This is a nice day";
   char *mem =
